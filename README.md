@@ -94,4 +94,13 @@ POST	/api/producto   =>  Crea un nuevo producto
 PUT	/api/producto/{id}  =>  Actualiza un producto
 DELETE	/api/producto/{id}  =>  Elimina un producto
 
-//Como Ejecutarlo paso por paso.
+//Clonar Proyecto
+https://github.com/Walmer24/WebApiPracticaSigno
+
+Nota personal: Hice todo mi esfuerzo por configurar el docker pero es algo nuevo para mi y al no tener
+suficiente tiempo no pude realizarlo pero no es que nunca pueda, es algo nuevo para mi y es un reto a superar
+al ser una persona competente se que lo lograre, espero que les guste lo que pude realizar con tanto empeño y sastifacion.
+
+Se que tengo muchas cosas que mejorar pero es algo que junto a prefesionales podre aprender y ser un mejor
+programador e impulsar a SignosFramework a lo mas alto.
+
