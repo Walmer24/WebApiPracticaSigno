@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Práctica JavaScript</title>
+  </head>
+  <body>
+    <h2>Prueba de Funciones JS</h2>
+
+    <!-- JSON Input -->
+    <div>
+      <label>Ingresa un JSON válido:</label><br />
+      <textarea id="jsonInput" rows="4" cols="40">
+{ "nombre": "Walmer" }</textarea
+      >
+      <br /><br />
+      <button onclick="probarValidateJson()">Validar JSON</button>
+      <p id="jsonResult"></p>
+    </div>
+
+    <hr />
+
+    <!-- Parametrizar tiempo -->
+    <div>
+      <label>Tiempo (ms) para la simulación HTTP:</label><br />
+      <input type="number" id="delayInput" value="2000" />
+      <br /><br />
+      <button onclick="probarSimulacion()">Simular Llamada HTTP</button>
+      <p id="simResult"></p>
+    </div>
+
+    <hr />
+
+    <!-- Filtrar productos -->
+    <div>
+      <button onclick="probarFiltrado()">Filtrar Productos</button>
+      <p id="filterResult"></p>
+    </div>
+
+    <!-- ========================= -->
+    <!-- ARCHIVO JS (incluido aquí) -->
+    <!-- ========================= -->
+
+    <script>
+      // -----------------------
+      // FUNCIONES DEL ARCHIVO JS
+      // -----------------------
+
+      function validateJson(jsonString) {
+        try {
+          const data = JSON.parse(jsonString);
+          return { ...data, procesado: true };
+        } catch (error) {
+          throw new Error("El formato del JSON no es válido");
+        }
+      }
+
+      function filterAndSortProducts(products) {
+        return products
+          .filter((item) => item.stock > 0)
+          .sort((a, b) => b.precio - a.precio);
+      }
+
+      async function simulateHttpRequest(delay = 2000) {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              id: 1,
+              nombre: "Mouse",
+              precio: 24.85,
+            });
+          }, delay);
+        });
+      }
+
+      // -----------------------------
+      // FUNCIONES QUE USA LA VISTA
+      // -----------------------------
+
+      function probarValidateJson() {
+        const texto = document.getElementById("jsonInput").value;
+
+        try {
+          const resultado = validateJson(texto);
+          document.getElementById("jsonResult").innerText =
+            "Resultado: " + JSON.stringify(resultado);
+        } catch (err) {
+          document.getElementById("jsonResult").innerText = err.message;
+        }
+      }
+
+      async function probarSimulacion() {
+        const delay = parseInt(document.getElementById("delayInput").value);
+
+        document.getElementById("simResult").innerText =
+          "Esperando respuesta...";
+
+        const producto = await simulateHttpRequest(delay);
+
+        document.getElementById("simResult").innerText =
+          "Producto recibido: " + JSON.stringify(producto);
+      }
+
+      function probarFiltrado() {
+        const productos = [
+          { nombre: "Mouse", stock: 10, precio: 20 },
+          { nombre: "Teclado", stock: 0, precio: 30 },
+          { nombre: "Monitor", stock: 5, precio: 150 },
+        ];
+
+        const resultado = filterAndSortProducts(productos);
+
+        document.getElementById("filterResult").innerText =
+          "Resultado: " + JSON.stringify(resultado);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+Ejercicio 5: Ingles Tecnico
+
+//This function calculates the total price including taxes. 
+// Parameters: base price and VAT percentage.
+// Returns the final price.
+
+
+Which endpoint is used to list resources?
+-The endpoint for listing is get/api/productos
+
+What status code is expected when creating a resource?
+-the status that the 201 should send
+
+What type of authentication does the API use?
+-The API uses Bearer Token authentication, where the client sends an access token (usually a JWT)
+ in the Authorization header to access protected resources.
