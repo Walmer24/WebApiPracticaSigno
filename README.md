@@ -94,6 +94,19 @@ POST	/api/producto   =>  Crea un nuevo producto
 PUT	/api/producto/{id}  =>  Actualiza un producto
 DELETE	/api/producto/{id}  =>  Elimina un producto
 
-//Clonar Proyecto
+//Pasos para ejecutar el proyecto
+
+1 - Clonar Proyecto
 https://github.com/Walmer24/WebApiPracticaSigno
+
+2 - En el appsettings.json conectar a tu pase de datos.
+
+3 - Hacer las migraciones (dotnet ed add migration NombreDeLaMigracion) y luego actualizar (dotnet ef update database).
+
+4 - Ejecutar.
+
+% - Al proyecto correr entonces podras ver, seleccionar uno, insertar, actualizar y eliminar productos.
+
+
+
 
